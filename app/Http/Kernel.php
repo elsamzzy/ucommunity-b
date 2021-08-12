@@ -2,6 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\SuccessRegistered;
+use App\Http\Middleware\VerifiedEmailMiddleware;
+use App\Http\Middleware\VerifyID;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -62,5 +65,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'success.registered' => SuccessRegistered::class,
+        'confirm.email' => VerifiedEmailMiddleware::class,
+        'verify.id' => VerifyID::class
     ];
 }

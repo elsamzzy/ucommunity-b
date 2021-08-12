@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -17,8 +19,25 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
+        'mobile',
+        'gender',
+        'dob',
+        'address',
+        'state',
+        'country',
+        'zip',
+        'activation_token',
+        'admin_active',
+        'password_reset_token',
+        'active',
+        'balance',
+        'email_verified_at',
+        'picture_format',
+        'identity_type',
+        'last_login',
         'password',
     ];
 
@@ -40,4 +59,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Trans() {
+        return $this->hasMany(Transactions::class, 'users_id');
+    }
 }

@@ -22,11 +22,21 @@
                 </div>
                 <div class="col-md-7 w3l_contact_form">
                     <h4>Contact Form</h4>
-                    <form action="#" method="post">
-                        <input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-                        <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                        <input type="text" name="Phone" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}" required="">
-                        <textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+                    <form action="" method="post">
+                        <input type="text" placeholder="Your Full Name" name="name" class="@error('name') is-invalid @enderror" value="{{old('name')}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}" required>
+                        <input type="email" placeholder="Your Email" name="email" class="@error('email') is-invalid @enderror" value="{{old('email')}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}" required>
+                        <input type="text" placeholder="Your Mobile Number" name="mobile" class="@error('mobile') is-invalid @enderror" value="{{old('mobile')}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Mobile Number';}" required>
+                        <textarea name="message" placeholder="Your Message" class="@error('message') is-invalid @enderror" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Message';}" required>{{old('message')}}</textarea>
+                        @if(session('error'))
+                            <div class="mt-2 text-danger">
+                                <h5>{{session('error')}}</h5>
+                            </div>
+                        @endif
+                        @if(session('message'))
+                            <div class="mt-2 text-success">
+                                <h5>{{session('message')}}</h5>
+                            </div>
+                        @endif
                         <input type="submit" value="Submit">
                     </form>
                 </div>

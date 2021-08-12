@@ -6,18 +6,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="welcome to umited community bank" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- Custom Theme files -->
     <link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet" media="all">
     <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="all">
-    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">   <!-- font-awesome icons -->
-    <!-- //Custom Theme files -->
-    <!-- js -->
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
-    <!-- web-fonts -->
     <link href="//fonts.googleapis.com/css?family=Secular+One" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- //web-fonts -->
 </head>
 <body>
 
@@ -36,8 +31,8 @@
                     <div class="clearfix"> </div>
                 </div>
                 <div class="header-w3top">
-                    <a href="#">Login</a>
-                    <button class="btn btn-primary">Sign Up</button>
+                    <a href="{{route('login')}}">Login</a>
+                    <button class="btn btn-primary" onclick='window.location.href = "{{route('register')}}"'>Sign Up</button>
                 </div>
                 <div class="agile_social_banner">
                     <ul class="agileits_social_list">
@@ -64,7 +59,6 @@
                     Menu
                 </button>
             </div>
-            <!-- top-nav -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}" @if(Request::url() === url('/')) class="active" @else class="scroll" @endif>Home</a></li>
@@ -80,7 +74,6 @@
 </div>
 @yield('content')
 
-<!--//footer-->
 
     <div class="agile-footer w3ls-section">
         <div class="container">
@@ -105,7 +98,6 @@
 
     </div>
 
-    <!-- modal-sign -->
     <div class="modal bnr-modal fade" id="myModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-dialog modal-md">
@@ -123,7 +115,6 @@
 
         </div>
     </div>
-    <!-- modal-sign -->
     <div class="modal bnr-modal fade" id="myModal1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -147,7 +138,6 @@
 
 <script src="{{ asset('js/responsiveslides.min.js') }}"></script>
 <script>
-    // You can also use "$(window).load(function() {"
     $(function () {
         // Slideshow 3
         $("#slider3").responsiveSlides({
@@ -167,7 +157,6 @@
     });
 </script>
 <script src="{{ asset('js/SmoothScroll.min.js') }}"></script>
-<!-- smooth-scrolling-of-move-up -->
 <script type="text/javascript" src="{{ asset('js/move-top.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/easing.js') }}"></script>
 <script type="text/javascript">
@@ -185,10 +174,6 @@
 
     });
 </script>
-<!-- //smooth-scrolling-of-move-up -->
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
