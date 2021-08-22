@@ -30,7 +30,7 @@ class ActivateAccount extends Mailable
      */
     public function build()
     {
-        $url = 'http://localhost:8000/confirm/'.$this->token;
+        $url = 'https://u-communityb.com/confirm/'.$this->token;
         return $this->markdown('mail/activateaccount', [
             'url' => $url
         ])->subject('Confirm Account');

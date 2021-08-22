@@ -49,8 +49,8 @@ Route::post('/contact', [ContactUsController::class, 'store']);
 
 Route::middleware('success.registered')->get('/success', [SuccessController::class, 'index'])->name('success');
 
-Route::get('/confirm/{token}', [ConfirmAccount::class, 'store'])->name('confirm.token');
 Route::get('/confirm/success', [ConfirmAccount::class, 'index'])->name('confirm.success');
+Route::get('/confirm/{token}', [ConfirmAccount::class, 'store'])->name('confirm.token');
 
 Route::get('/resend', [ResendVerificationEmailController::class, 'index'])->name('resend');
 Route::post('/resend', [ResendVerificationEmailController::class, 'relogin']);

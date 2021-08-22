@@ -24,7 +24,7 @@ class ResendVerificationEmailController extends Controller
     public function store() {
         try {
             $user = auth()->guard()->user();
-            // Mail::to($user->activation_token)->send(new ActivateAccount($user->activation_token));
+            Mail::to($user->email)->send(new ActivateAccount($user->activation_token));
             if ($user->hasRole('admin')) {
                 session(['registered' => 'admin']);
                 auth()->guard()->logout();

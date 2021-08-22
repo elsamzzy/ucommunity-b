@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ConfirmEmailSuccess;
 use App\Http\Middleware\SuccessRegistered;
 use App\Http\Middleware\VerifiedEmailMiddleware;
 use App\Http\Middleware\VerifyID;
@@ -67,6 +68,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'success.registered' => SuccessRegistered::class,
         'confirm.email' => VerifiedEmailMiddleware::class,
-        'verify.id' => VerifyID::class
+        'verify.id' => VerifyID::class,
+        'confirm.success' => ConfirmEmailSuccess::class
     ];
 }
